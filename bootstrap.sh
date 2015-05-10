@@ -1,8 +1,14 @@
 #!/bin/bash
+# Install Puppet and librarian-puppet
 sudo pacman -S ruby puppet
 sudo gem install librarian-puppet
-cd /etc/puppet/ && rm rf modules
-cp Puppetfile .
+
+# Configure librarian and install modules
+rm rf /etc/puppet/modules
+cp Puppetfile /etc/puppet/
+cd /etc/puppet
 sudo ~/.gem/ruby/2.2.0/bin/librarian-puppet install
-cd ~
+
+# Run Puppet
+cd -
 sudo puppet apply site.pp
