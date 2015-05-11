@@ -1,6 +1,6 @@
 #!/bin/bash
 # Install Puppet and librarian-puppet
-sudo pacman -S ruby puppet
+sudo pacman -S --noconfirm ruby puppet
 sudo gem install librarian-puppet
 
 # Configure librarian and install modules
