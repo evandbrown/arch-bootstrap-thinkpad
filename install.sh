@@ -3,14 +3,14 @@
 sudo pacman -S --noconfirm ruby puppet
 sudo gem install librarian-puppet
 
-# Allow group to write to puppet
-chmod -R g+w /etc/puppet
-
 # Configure librarian and install modules
 rm -rf /etc/puppet/modules
 cp Puppetfile /etc/puppet/
 cd /etc/puppet
 sudo ~/.gem/ruby/2.2.0/bin/librarian-puppet install
+
+# Allow group to write to puppet
+chmod -R g+w /etc/puppet
 
 # Run Puppet
 cd -
